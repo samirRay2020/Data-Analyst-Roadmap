@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Analyst Roadmap — Phase 1 to 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d0d12;
+    --surface: #16161e;
+    --surface2: #1e1e28;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.13);
+    --text: #e8e6f0;
+    --muted: #7b78a0;
+    --hint: #4a4768;
+    --purple: #a78bfa;
+    --purple-dim: rgba(167,139,250,0.12);
+    --purple-border: rgba(167,139,250,0.3);
+    --teal: #2dd4bf;
+    --teal-dim: rgba(45,212,191,0.1);
+    --teal-border: rgba(45,212,191,0.3);
+    --coral: #fb923c;
+    --coral-dim: rgba(251,146,60,0.1);
+    --coral-border: rgba(251,146,60,0.3);
+    --green: #86efac;
+    --green-dim: rgba(134,239,172,0.1);
+    --amber: #fbbf24;
+    --amber-dim: rgba(251,191,36,0.1);
+    --red: #f87171;
+    --red-dim: rgba(248,113,113,0.1);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 80px 24px 60px;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--purple);
+    background: var(--purple-dim);
+    border: 1px solid var(--purple-border);
+    border-radius: 20px;
+    padding: 4px 14px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(32px, 6vw, 52px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--purple); }
+  .hero p {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 500px;
+    margin: 0 auto 32px;
+  }
+  .legend {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  /* Layout */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* Phase block */
+  .phase-block { margin-bottom: 56px; }
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .phase-badge {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .phase-badge.p1 { background: var(--purple-dim); color: var(--purple); border: 1px solid var(--purple-border); }
+  .phase-badge.p2 { background: var(--teal-dim); color: var(--teal); border: 1px solid var(--teal-border); }
+  .phase-badge.p3 { background: var(--coral-dim); color: var(--coral); border: 1px solid var(--coral-border); }
+  .phase-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .phase-time {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--hint);
+    white-space: nowrap;
+  }
+
+  /* Skills grid */
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .skills-grid.single { grid-template-columns: 1fr; }
+  @media (max-width: 600px) { .skills-grid { grid-template-columns: 1fr; } }
+
+  /* Skill card */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: var(--border2); }
+  .card-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-icon {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .card-icon.p1 { background: var(--purple-dim); color: var(--purple); }
+  .card-icon.p2 { background: var(--teal-dim); color: var(--teal); }
+  .card-icon.p3 { background: var(--coral-dim); color: var(--coral); }
+  .card-desc {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  /* Resource section */
+  .res-section { margin-bottom: 12px; }
+  .res-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--hint);
+    margin-bottom: 6px;
+  }
+  .pills { display: flex; flex-wrap: wrap; gap: 5px; }
+  .pill {
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.15s;
+    line-height: 1.6;
+  }
+  .pill:hover { opacity: 0.75; }
+  .pill.standard { background: var(--surface2); color: var(--muted); border: 1px solid var(--border); }
+  .pill.gem { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(251,191,36,0.2); }
+  .pill.game { background: var(--green-dim); color: var(--green); border: 1px solid rgba(134,239,172,0.2); }
+  .pill.yt { background: var(--red-dim); color: var(--red); border: 1px solid rgba(248,113,113,0.2); }
+
+  /* Star note card */
+  .star-card {
+    background: var(--purple-dim);
+    border: 1px solid var(--purple-border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .star-card strong { color: var(--purple); font-weight: 500; }
+
+  /* Divider */
+  hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 32px 24px 48px;
+    font-size: 12px;
+    color: var(--hint);
+    border-top: 1px solid var(--border);
+  }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">Free Learning Guide</div>
+  <h1>Become a <span>Data Analyst</span><br>from scratch</h1>
+  <p>A curated roadmap across 3 phases — with hidden gems, games, and YouTube channels for every skill.</p>
+  <div class="legend">
+    <div class="legend-item"><span class="dot" style="background:#7b78a0"></span> Standard resource</div>
+    <div class="legend-item"><span class="dot" style="background:#fbbf24"></span> Hidden gem ✦</div>
+    <div class="legend-item"><span class="dot" style="background:#86efac"></span> Game / interactive</div>
+    <div class="legend-item"><span class="dot" style="background:#f87171"></span> YouTube</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ── PHASE 1 ── -->
+  <div class="phase-block">
+    <div class="phase-header">
+      <span class="phase-badge p1">Phase 1</span>
+      <span class="phase-title">Foundations</span>
+      <span class="phase-time">~3–4 months</span>
+    </div>
+
+    <div class="skills-grid">
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon p1">∑</div>
+          Statistics &amp; math
+        </div>
+        <p class="card-desc">Mean, median, distributions, probability, hypothesis testing, correlation vs causation. The reasoning layer beneath every analysis.</p>
+
+        <div class="res-section">
+          <div class="res-label">Learn</div>
+          <div class="pills">
+            <a class="pill standard" href="https://www.khanacademy.org/math/statistics-probability" target="_blank">Khan Academy Stats</a>
+            <a class="pill gem" href="https://seeing-theory.brown.edu" target="_blank">✦ Seeing Theory</a>
+            <a class="pill gem" href="https://www.statisticshowto.com" target="_blank">✦ Statistics How To</a>
+          </div>
+        </div>
+
+        <div class="res-section">
+          <div class="res-label">Practice</div>
+          <div class="pills">
+            <a class="pill standard" href="https://www.kaggle.com/learn/intro-to-machine-learning" target="_blank">Kaggle Stats Intro</a>
+            <a class="pill gem" href="https://www.openintro.org/stat/" target="_blank">✦ OpenIntro Stats</a>
+          </div>
+        </div>
+
+        <div class="res-section">
+          <div class="res-label">Play &amp; learn</div>
+          <div class="pills">
+            <a class="pill game" href="https://www.rossmanchance.com/applets/" target="_blank">Rossman/Chance Applets</a>
+            <a class="pill game" href="https://ncase.me/probability/" target="_blank">Probability Game</a>
+          </div>
+        </div>
+
+        <div class="res-section">
+          <div class="res-label">YouTube</div>
+          <div class="pills">
+            <a class="pill yt" href="https://www.youtube.com/c/StatQuestwithJoshStarmer" target="_blank">StatQuest – Josh Starmer</a>
+            <a class="pill yt" href="https://www.youtube.com/@3blue1brown" target="_blank">3Blue1Brown</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon p1">⊞</div>
+          Excel / Spreadsheets
+        </div>
+        <p class="card-desc">VLOOKUP, IF/IFS, pivot tables, conditional formatting, XLOOKUP, Power Query basics. The universal tool every analyst still uses daily.</p>
+
+        <div class="res-section">
+          <div class="res-label">Learn</div>
+          <div class="pills">
+            <a class="pill standard" href="https://exceljet.net" target="_blank">Exceljet</a>
+            <a class="pill gem" href="https://chandoo.org/wp/" target="_blank">✦ Chandoo.org</a>
+            <a class="pill gem" href="https://www.contextures.com/excel-tips.html" target="_blank">✦ Contextures</a>
+          </div>
+        </div>
+
+        <div class="res-section">
+          <div class="res-label">Practice</div>
+          <div class="pills">
+            <a class="pill standard" href="https://www.excel-practice-online.com" target="_blank">Excel Practice Online</a>
+            <a class="pill gem" href="https://spreadsheetpoint.com/excel-exercises/" target="_blank">✦ Spreadsheet exercises</a>
+          </div>
+        </div>
+
+        <div class="res-section">
+          <div class="res-label">Play &amp; learn</div>
+          <div class="pills">
+            <a class="pill game" href="https://www.sporcle.com/games/g/excelfunctions" target="_blank">Excel Functions Quiz</a>
+          </div>
+        </div>
+
+        <div class="res-section">
+          <div class="res-label">YouTube</div>
+          <div class="pills">
+            <a class="pill yt" href="https://www.youtube.com/@ExcelCampus-Jon" target="_blank">Excel Campus – Jon A.</a>
+            <a class="pill yt" href="https://www.youtube.com/@LeilaGharani" target="_blank">Leila Gharani</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-grid single" style="margin-top:14px">
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon p1">🐍</div>
+          Python basics
+        </div>
+        <p class="card-desc">Variables, data types, lists, dicts, loops, functions, list comprehensions, file I/O. Focus on writing clean, readable scripts before moving to libraries.</p>
+
+        <div class="skills-grid" style="margin-top:4px">
+          <div>
+            <div class="res-section">
+              <div class="res-label">Learn</div>
+              <div class="pills">
+                <a class="pill standard" href="https://docs.python.org/3/tutorial/" target="_blank">Official Python Tutorial</a>
+                <a class="pill gem" href="https://realpython.com/start-here/" target="_blank">✦ Real Python</a>
+                <a class="pill gem" href="https://www.practicepython.org" target="_blank">✦ Practice Python</a>
+              </div>
+            </div>
+            <div class="res-section">
+              <div class="res-label">Practice</div>
+              <div class="pills">
+                <a class="pill standard" href="https://www.hackerrank.com/domains/python" target="_blank">HackerRank Python</a>
+                <a class="pill gem" href="https://edabit.com/challenges/python3" target="_blank">✦ Edabit Python</a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="res-section">
+              <div class="res-label">Play &amp; learn</div>
+              <div class="pills">
+                <a class="pill game" href="https://checkio.org" target="_blank">CheckiO</a>
+                <a class="pill game" href="https://codingbat.com/python" target="_blank">CodingBat Puzzles</a>
+                <!-- <a class="pill game" href="https://py.checkio.org" target="_blank">PyCheckiO Challenges</a> -->
+              </div>
+            </div>
+            <div class="res-section">
+              <div class="res-label">YouTube</div>
+              <div class="pills">
+                <a class="pill yt" href="https://www.youtube.com/@coreyms/search?query=python%20beginner" target="_blank">Corey Schafer</a>
+                <a class="pill yt" href="https://www.youtube.com/watch?v=_uQrJ0TkZlc" target="_blank">Programming with Mosh</a>
+                <a class="pill yt" href="https://www.youtube.com/watch?v=7wnove7K-ZQ&list=PLu0W_9lII9agwh1XjRt242xIpHhPT2llg" target="_blank">Code With Harry</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PHASE 2 ── -->
+  <div class="phase-block">
+    <div class="phase-header">
+      <span class="phase-badge p2">Phase 2</span>
+      <span class="phase-title">Core tools</span>
+      <span class="phase-time">~2–3 months</span>
+    </div>
+
+    <div class="skills-grid single" style="margin-bottom:14px">
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon p2">⬡</div>
+          SQL
+        </div>
+        <p class="card-desc">SELECT, WHERE, GROUP BY, JOINs, subqueries, window functions (ROW_NUMBER, RANK, LAG), CTEs. The single most in-demand analyst skill — invest heavily here.</p>
+
+        <div class="skills-grid">
+          <div>
+            <div class="res-section">
+              <div class="res-label">Learn</div>
+              <div class="pills">
+                <a class="pill standard" href="https://mode.com/sql-tutorial/" target="_blank">Mode SQL Tutorial</a>
+                <a class="pill gem" href="https://selectstarsql.com" target="_blank">✦ Select Star SQL</a>
+                <a class="pill gem" href="https://sqlzoo.net" target="_blank">✦ SQL Zoo</a>
+                <a class="pill gem" href="https://www.sql-practice.com" target="_blank">✦ SQL Practice</a>
+              </div>
+            </div>
+            <div class="res-section">
+              <div class="res-label">Practice</div>
+              <div class="pills">
+                <a class="pill standard" href="https://www.stratascratch.com" target="_blank">StrataScratch</a>
+                <a class="pill gem" href="https://pgexercises.com" target="_blank">✦ PostgreSQL Exercises</a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="res-section">
+              <div class="res-label">Play &amp; learn</div>
+              <div class="pills">
+                <!-- <a class="pill game" href="https://mystery.knightlab.com" target="_blank">SQL Murder Mystery</a> -->
+                <!-- <a class="pill game" href="https://lost-at-sql.therobinlord.com" target="_blank">Lost at SQL</a> -->
+                <a class="pill game" href="https://www.hackerrank.com/domains/sql?filters%5Bdifficulty%5D%5B%5D=easy" target="_blank">Hacker Rank Practice.</a>
+              </div>
+            </div>
+            <div class="res-section">
+              <div class="res-label">YouTube</div>
+              <div class="pills">
+                <a class="pill yt" href="https://www.youtube.com/watch?v=OT1RErkfLNQ" target="_blank">Alex The Analyst</a>
+                <a class="pill yt" href="https://www.youtube.com/watch?v=a-hFbr-4VQQ&list=PLavw5C92dz9Ef4E-1Zi9KfCTXS_IN8gXZ" target="_blank">techTFQ (window fns)</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="star-card">
+          <!-- <strong>Pro tip:</strong> Start with SQL Murder Mystery — you'll learn JOINs and WHERE clauses without even realising it because you're solving a crime story. -->
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-grid">
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon p2">&lt;/&gt;</div>
+          Python libraries
+        </div>
+        <p class="card-desc">Pandas for data manipulation, NumPy for math, Matplotlib &amp; Seaborn for charts. These cover 90% of day-to-day analysis work.</p>
+
+        <div class="res-section">
+          <div class="res-label">Learn</div>
+          <div class="pills">
+            <a class="pill standard" href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/" target="_blank">Pandas Docs</a>
+            <a class="pill gem" href="https://www.kaggle.com/learn/pandas" target="_blank">✦ Kaggle Pandas</a>
+            <a class="pill gem" href="https://pandastutor.com" target="_blank">✦ Pandas Tutor</a>
+          </div>
+        </div>
+        <div class="res-section">
+          <div class="res-label">Practice</div>
+          <div class="pills">
+            <a class="pill standard" href="https://github.com/guipsamora/pandas_exercises" target="_blank">Pandas exercises (GitHub)</a>
+            <a class="pill gem" href="https://www.w3resource.com/python-exercises/pandas/index.php" target="_blank">✦ W3 Pandas Drills</a>
+          </div>
+        </div>
+        <div class="res-section">
+          <div class="res-label">YouTube</div>
+          <div class="pills">
+            <a class="pill yt" href="https://www.youtube.com/watch?v=RhEjmHeDNoA" target="_blank">Code With Harry</a>
+            <a class="pill yt" href="https://www.youtube.com/watch?v=2uvysYbKdjM" target="_blank">Keith Galli</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon p2">◎</div>
+          BI Tools
+        </div>
+        <p class="card-desc">Power BI or Tableau — interactive dashboards, calculated fields, data models. Power BI for Microsoft environments; Tableau for standalone analytics.</p>
+
+        <div class="res-section">
+          <div class="res-label">Learn</div>
+          <div class="pills">
+            <a class="pill standard" href="https://learn.microsoft.com/en-us/training/powerplatform/power-bi" target="_blank">MS Power BI Learn</a>
+            <!-- <a class="pill gem" href="https://public.tableau.com/en-us/s/resources" target="_blank">✦ Tableau Public</a> -->
+            <!-- <a class="pill gem" href="https://www.sqlbi.com" target="_blank">✦ SQLBI (DAX deep)</a> -->
+          </div>
+        </div>
+        <div class="res-section">
+          <div class="res-label">Practice</div>
+          <div class="pills">
+            <a class="pill standard" href="https://community.fabric.microsoft.com/t5/Data-Stories-Gallery/bd-p/DataStoriesGallery" target="_blank">Microsoft Community</a>
+            <a class="pill standard" href="https://www.workout-wednesday.com/power-bi-challenges/?utm_source=chatgpt.com" target="_blank">Workout wednesday</a>
+          </div>
+        </div>
+        <div class="res-section">
+          <div class="res-label">YouTube</div>
+          <div class="pills">
+            <a class="pill yt" href="https://www.youtube.com/watch?v=in7Oc0hZOiQ" target="_blank">Matt Mike</a>
+            <a class="pill yt" href="https://www.youtube.com/watch?v=g0m5sEHPU-s&list=PLUaB-1hjhk8HqnmK0gQhfmIdCbxwoAoys&index=1" target="_blank">Alex the analyst</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PHASE 3 ── -->
+  <div class="phase-block">
+    <div class="phase-header">
+      <span class="phase-badge p3">Phase 3</span>
+      <span class="phase-title">Analysis skills</span>
+      <span class="phase-time">~2–3 months</span>
+    </div>
+
+    <div class="skills-grid single" style="margin-bottom:14px">
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon p3">⧖</div>
+          Data cleaning
+        </div>
+        <p class="card-desc">Handle nulls, fix data types, remove duplicates, standardize formats, deal with outliers, reshape data. Most analysts spend 60–80% of their real-world time here.</p>
+
+        <div class="skills-grid">
+          <div>
+            <div class="res-section">
+              <div class="res-label">Learn</div>
+              <div class="pills">
+                <a class="pill standard" href="https://www.kaggle.com/learn/data-cleaning" target="_blank">Kaggle Data Cleaning</a>
+                <!-- <a class="pill gem" href="https://openrefine.org" target="_blank">✦ OpenRefine (free tool)</a> -->
+                <a class="pill gem" href="https://dataprep.ai" target="_blank">✦ DataPrep.ai</a>
+              </div>
+            </div>
+            <div class="res-section">
+              <div class="res-label">Practice</div>
+              <div class="pills">
+                <a class="pill standard" href="https://github.com/rfordatascience/tidytuesday" target="_blank">Tidy Tuesdays</a>
+                <a class="pill gem" href="https://openrefine.org/" target="_blank">Open Refine</a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="res-section">
+              <div class="res-label">YouTube</div>
+              <div class="pills">
+                <a class="pill yt" href="https://www.youtube.com/watch?v=f7NfO16l04U&list=PL8eNk_zTBST-gN6Y5E-5FZdARXjglYpyT&index=1" target="_blank">Data Science DoJo</a>
+                <a class="pill yt" href="https://www.youtube.com/watch?v=I7DZP4rVQOU&list=PLTsu3dft3CWhOUPyXdLw8DGy_1l2oK1yy&index=1" target="_blank">Onur Baltaci</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-grid">
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon p3">▦</div>
+          Data visualization
+        </div>
+        <p class="card-desc">Right chart types, purposeful color, data storytelling. Learn Matplotlib, Seaborn, Plotly plus design principles.</p>
+
+        <div class="res-section">
+          <div class="res-label">Learn</div>
+          <div class="pills">
+            <!-- <a class="pill gem" href="https://flowingdata.com" target="_blank">✦ FlowingData</a> -->
+            <a class="pill gem" href="https://www.visualcinnamon.com/resources/learning-data-visualization" target="_blank">✦ Visual Cinnamon</a>
+            <a class="pill standard" href="https://www.data-to-viz.com" target="_blank">From Data to Viz</a>
+          </div>
+        </div>
+        <div class="res-section">
+          <div class="res-label">Practice &amp; inspiration</div>
+          <div class="pills">
+            <a class="pill standard" href="https://www.makeovermonday.co.uk" target="_blank">Makeover Monday</a>
+            <!-- <a class="pill game" href="https://pudding.cool" target="_blank">The Pudding</a> -->
+          </div>
+        </div>
+        <div class="res-section">
+          <div class="res-label">YouTube</div>
+          <div class="pills">
+            <a class="pill yt" href="https://www.youtube.com/@storytellingwithdata" target="_blank">Storytelling with Data</a>
+            <!-- <a class="pill yt" href="https://www.youtube.com/@SethDataScience" target="_blank">Seth Data Science</a> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon p3">⊙</div>
+          Exploratory data analysis
+        </div>
+        <p class="card-desc">Understand dataset shape, find patterns, spot anomalies, generate hypotheses. Combine descriptive stats and visuals systematically.</p>
+
+        <div class="res-section">
+          <div class="res-label">Learn</div>
+          <div class="pills">
+            <a class="pill standard" href="https://www.kaggle.com/learn/data-visualization" target="_blank">Kaggle EDA Course</a>
+            <a class="pill gem" href="https://dtale.readthedocs.io" target="_blank">✦ D-Tale (EDA GUI)</a>
+            <a class="pill gem" href="https://github.com/ydataai/ydata-profiling" target="_blank">✦ ydata-profiling</a>
+          </div>
+        </div>
+        <div class="res-section">
+          <div class="res-label">Practice</div>
+          <div class="pills">
+            <a class="pill standard" href="https://www.kaggle.com/competitions" target="_blank">Kaggle Competitions</a>
+            <a class="pill gem" href="https://datasetsearch.research.google.com" target="_blank">✦ Google Dataset Search</a>
+          </div>
+        </div>
+        <div class="res-section">
+          <div class="res-label">YouTube</div>
+          <div class="pills">
+            <a class="pill yt" href="https://www.youtube.com/@KenJee_ds" target="_blank">Ken Jee</a>
+            <a class="pill yt" href="https://www.youtube.com/@ritvikmath" target="_blank">ritvikmath</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div style="text-align:center;padding:8px 0 0">
+    <p style="font-size:13px;color:#4a4768;line-height:1.8">
+      ✦ = hidden gem &nbsp;·&nbsp; green = game/interactive &nbsp;·&nbsp; red = YouTube channel<br>
+      Estimated total: <span style="color:#a78bfa;font-weight:500">6–10 months</span> at a consistent pace
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  Data Analyst Roadmap · Phase 1–3 · Free resource guide
+</footer>
+
+</body>
+</html>
