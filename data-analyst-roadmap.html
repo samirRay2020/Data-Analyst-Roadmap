@@ -230,7 +230,45 @@
     color: var(--hint);
     border-top: 1px solid var(--border);
   }
+  .insta-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
 
+    margin-top:12px;
+    padding:8px 16px;
+
+    font-size:14px;
+    font-weight:600;
+    font-family:'Inter',sans-serif;
+
+    color:#fff;
+    text-decoration:none;
+
+    border-radius:999px;
+    background:linear-gradient(90deg,#ff006e,#8b5cf6,#3b82f6);
+
+    box-shadow:0 0 8px rgba(167,139,250,.35);
+
+    transition:.25s;
+}
+
+.insta-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 0 14px rgba(167,139,250,.5);
+}
+
+@keyframes glow{
+    from{
+        box-shadow:0 0 8px rgba(167,139,250,.4),
+                   0 0 15px rgba(167,139,250,.2);
+    }
+    to{
+        box-shadow:0 0 18px rgba(167,139,250,.8),
+                   0 0 35px rgba(167,139,250,.5);
+    }
+}
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
@@ -238,6 +276,10 @@
 
 <div class="hero">
   <div class="hero-eyebrow">Free Learning Guide</div>
+  <br>
+  <a href="https://www.instagram.com/samirrayydv/" target="_blank" class="insta-btn">
+    📸 For More Follow @samirrayydv
+</a>
   <h1>Become a <span>Data Analyst</span><br>from scratch</h1>
   <p>A curated roadmap across 3 phases — with hidden gems, games, and YouTube channels for every skill.</p>
   <div class="legend">
@@ -287,14 +329,14 @@
           <div class="res-label">Play &amp; learn</div>
           <div class="pills">
             <a class="pill game" href="https://www.rossmanchance.com/applets/" target="_blank">Rossman/Chance Applets</a>
-            <a class="pill game" href="https://ncase.me/probability/" target="_blank">Probability Game</a>
+            <!-- <a class="pill game" href="https://ncase.me/probability/" target="_blank">Probability Game</a> -->
           </div>
         </div>
 
         <div class="res-section">
           <div class="res-label">YouTube</div>
           <div class="pills">
-            <a class="pill yt" href="https://www.youtube.com/c/StatQuestwithJoshStarmer" target="_blank">StatQuest – Josh Starmer</a>
+            <!-- <a class="pill yt" href="https://www.youtube.com/c/StatQuestwithJoshStarmer" target="_blank">StatQuest – Josh Starmer</a> -->
             <a class="pill yt" href="https://www.youtube.com/@3blue1brown" target="_blank">3Blue1Brown</a>
           </div>
         </div>
@@ -312,7 +354,7 @@
           <div class="pills">
             <a class="pill standard" href="https://exceljet.net" target="_blank">Exceljet</a>
             <a class="pill gem" href="https://chandoo.org/wp/" target="_blank">✦ Chandoo.org</a>
-            <a class="pill gem" href="https://www.contextures.com/excel-tips.html" target="_blank">✦ Contextures</a>
+            <!-- <a class="pill gem" href="https://www.contextures.com/excel-tips.html" target="_blank">✦ Contextures</a> -->
           </div>
         </div>
 
@@ -320,21 +362,21 @@
           <div class="res-label">Practice</div>
           <div class="pills">
             <a class="pill standard" href="https://www.excel-practice-online.com" target="_blank">Excel Practice Online</a>
-            <a class="pill gem" href="https://spreadsheetpoint.com/excel-exercises/" target="_blank">✦ Spreadsheet exercises</a>
+            <!-- <a class="pill gem" href="https://spreadsheetpoint.com/excel-exercises/" target="_blank">✦ Spreadsheet exercises</a> -->
           </div>
         </div>
 
         <div class="res-section">
           <div class="res-label">Play &amp; learn</div>
           <div class="pills">
-            <a class="pill game" href="https://www.sporcle.com/games/g/excelfunctions" target="_blank">Excel Functions Quiz</a>
+            <a class="pill game" href="https://excelexercises.com/" target="_blank">Excel Exercises</a>
           </div>
         </div>
 
         <div class="res-section">
           <div class="res-label">YouTube</div>
           <div class="pills">
-            <a class="pill yt" href="https://www.youtube.com/@ExcelCampus-Jon" target="_blank">Excel Campus – Jon A.</a>
+            <!-- <a class="pill yt" href="https://www.youtube.com/@ExcelCampus-Jon" target="_blank">Excel Campus – Jon A.</a> -->
             <a class="pill yt" href="https://www.youtube.com/@LeilaGharani" target="_blank">Leila Gharani</a>
           </div>
         </div>
@@ -412,9 +454,9 @@
               <div class="res-label">Learn</div>
               <div class="pills">
                 <a class="pill standard" href="https://mode.com/sql-tutorial/" target="_blank">Mode SQL Tutorial</a>
-                <a class="pill gem" href="https://selectstarsql.com" target="_blank">✦ Select Star SQL</a>
+                <!-- <a class="pill gem" href="https://selectstarsql.com" target="_blank">✦ Select Star SQL</a> -->
                 <a class="pill gem" href="https://sqlzoo.net" target="_blank">✦ SQL Zoo</a>
-                <a class="pill gem" href="https://www.sql-practice.com" target="_blank">✦ SQL Practice</a>
+            
               </div>
             </div>
             <div class="res-section">
@@ -422,6 +464,7 @@
               <div class="pills">
                 <a class="pill standard" href="https://www.stratascratch.com" target="_blank">StrataScratch</a>
                 <a class="pill gem" href="https://pgexercises.com" target="_blank">✦ PostgreSQL Exercises</a>
+                <a class="pill gem" href="https://www.sql-practice.com" target="_blank">✦ SQL Practice</a>
               </div>
             </div>
           </div>
@@ -462,6 +505,8 @@
           <div class="res-label">Learn</div>
           <div class="pills">
             <a class="pill standard" href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/" target="_blank">Pandas Docs</a>
+            <a class="pill standard" href="https://matplotlib.org/" target="_blank">Matplotlib Doc</a>
+            <a class="pill standard" href="https://numpy.org/" target="_blank">Numpy Docs</a>
             <a class="pill gem" href="https://www.kaggle.com/learn/pandas" target="_blank">✦ Kaggle Pandas</a>
             <a class="pill gem" href="https://pandastutor.com" target="_blank">✦ Pandas Tutor</a>
           </div>
@@ -470,6 +515,8 @@
           <div class="res-label">Practice</div>
           <div class="pills">
             <a class="pill standard" href="https://github.com/guipsamora/pandas_exercises" target="_blank">Pandas exercises (GitHub)</a>
+            <a class="pill standard" href="https://www.w3resource.com/python-exercises/numpy/basic/index.php" target="_blank">Numpy Exercises</a>
+            <a class="pill standard" href="https://www.w3resource.com/graphics/matplotlib/" target="_blank">Matplotlib Exercises</a>
             <a class="pill gem" href="https://www.w3resource.com/python-exercises/pandas/index.php" target="_blank">✦ W3 Pandas Drills</a>
           </div>
         </div>
@@ -477,6 +524,8 @@
           <div class="res-label">YouTube</div>
           <div class="pills">
             <a class="pill yt" href="https://www.youtube.com/watch?v=RhEjmHeDNoA" target="_blank">Code With Harry</a>
+            <a class="pill yt" href="https://www.youtube.com/watch?v=1qz7qUM6yUI" target="_blank">Numpy Full Course</a>
+            <a class="pill yt" href="https://www.youtube.com/watch?v=xXibS9832FM" target="_blank">Matplotlib Full Course</a>
             <a class="pill yt" href="https://www.youtube.com/watch?v=2uvysYbKdjM" target="_blank">Keith Galli</a>
           </div>
         </div>
@@ -493,7 +542,7 @@
           <div class="res-label">Learn</div>
           <div class="pills">
             <a class="pill standard" href="https://learn.microsoft.com/en-us/training/powerplatform/power-bi" target="_blank">MS Power BI Learn</a>
-            <!-- <a class="pill gem" href="https://public.tableau.com/en-us/s/resources" target="_blank">✦ Tableau Public</a> -->
+            <a class="pill gem" href="https://playground.powerbi.com/en-us/learning-center" target="_blank">Playground powerBI</a>
             <!-- <a class="pill gem" href="https://www.sqlbi.com" target="_blank">✦ SQLBI (DAX deep)</a> -->
           </div>
         </div>
@@ -573,23 +622,24 @@
         <div class="res-section">
           <div class="res-label">Learn</div>
           <div class="pills">
-            <!-- <a class="pill gem" href="https://flowingdata.com" target="_blank">✦ FlowingData</a> -->
-            <a class="pill gem" href="https://www.visualcinnamon.com/resources/learning-data-visualization" target="_blank">✦ Visual Cinnamon</a>
-            <a class="pill standard" href="https://www.data-to-viz.com" target="_blank">From Data to Viz</a>
+            <a class="pill gem" href="https://www.data-to-viz.com" target="_blank">From Data to Viz</a>
+            
+            <a class="pill standard" href="https://mschermann.github.io/data_viz_reader/fundamentals.html#design-principles" target="_blank">Learn Design Principles</a>
+            <a class="pill standard" href="https://seaborn.pydata.org/" target="_blank">Seaborn</a>
           </div>
         </div>
         <div class="res-section">
           <div class="res-label">Practice &amp; inspiration</div>
           <div class="pills">
             <a class="pill standard" href="https://www.makeovermonday.co.uk" target="_blank">Makeover Monday</a>
-            <!-- <a class="pill game" href="https://pudding.cool" target="_blank">The Pudding</a> -->
+            <a class="pill standard" href="https://www.kaggle.com/code/saikiranvepamani/seaborn-exercises" target="_blank">Seaborn Exercises</a>
           </div>
         </div>
         <div class="res-section">
           <div class="res-label">YouTube</div>
           <div class="pills">
             <a class="pill yt" href="https://www.youtube.com/@storytellingwithdata" target="_blank">Storytelling with Data</a>
-            <!-- <a class="pill yt" href="https://www.youtube.com/@SethDataScience" target="_blank">Seth Data Science</a> -->
+
           </div>
         </div>
       </div>
@@ -612,6 +662,7 @@
         <div class="res-section">
           <div class="res-label">Practice</div>
           <div class="pills">
+            <a class="pill gem" href="https://graph.cubode.com/" target="_blank">Generate Visualizations</a>
             <a class="pill standard" href="https://www.kaggle.com/competitions" target="_blank">Kaggle Competitions</a>
             <a class="pill gem" href="https://datasetsearch.research.google.com" target="_blank">✦ Google Dataset Search</a>
           </div>
